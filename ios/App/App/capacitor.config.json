@@ -1,0 +1,11 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "zorgtechnologie-ict",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {},
+  "server": {
+    "url": "http://192.168.10.50:8100"
+  }
+}
