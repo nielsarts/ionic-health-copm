@@ -7,8 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="isLoggedIn; else loginTemplate">
-    <h1>Welcome, {{UserInfo.displayName}}!</h1>
+    <h1>Welcome, {{displayName}}!</h1>
     <p>Email: {{email}}<br>
       Family Name: {{familyName}}<br>
       Given Name: {{givenName}}<br>
@@ -18,6 +17,5 @@
         <img src="{{imageUrl}}">
       </ion-avatar>
     </p>
-    <ion-button color="danger" block (click)="logout()">Logout From Google</ion-button>
-  </div>
+    <ion-button color="danger" block (click)="HomePage.logout()">Logout From Google</ion-button>
 </ion-content>

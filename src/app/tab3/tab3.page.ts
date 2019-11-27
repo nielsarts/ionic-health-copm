@@ -7,12 +7,32 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  displayName: any;
+  email: any;
+  familyName: any;
+  givenName: any;
+  userId: any;
+  imageUrl: any;
 
   constructor(public storage: Storage) {
     storage.ready().then(() => {
-      this.storage.get('name').then((name) => {
-        console.log('Me: Hey, ' + name + '! You have a very nice name.');
-        console.log('You: Thanks! I got it for my birthday.');
+      this.storage.get('displayName').then((displayName) => {
+        this.displayName = displayName;
+      });
+      this.storage.get('email').then((email) => {
+        this.email = email;
+      });
+      this.storage.get('familyName').then((familyName) => {
+        this.familyName = familyName;
+      });
+      this.storage.get('givenName').then((givenName) => {
+        this.givenName = givenName;
+      });
+      this.storage.get('userId').then((userId) => {
+        this.userId = userId;
+      });
+      this.storage.get('imageUrl').then((imageUrl) => {
+        this.imageUrl = imageUrl;
       });
     });
   }

@@ -28,17 +28,16 @@ export class HomePage {
     this.googlePlus.login({})
         .then(res => {
           console.log(res);
-          this.displayName = res.displayName;
-          this.email = res.email;
-          this.familyName = res.familyName;
-          this.givenName = res.givenName;
-          this.userId = res.userId;
-          this.imageUrl = res.imageUrl;
 
           this.isLoggedIn = true;
 
           this.storage.ready().then(() => {
-              this.storage.set('name', 'Mr. Ionitron');
+              this.storage.set('displayName', res.displayName);
+              this.storage.set('email', res.email);
+              this.storage.set('familyName', res.familyName);
+              this.storage.set('givenName', res.givenName);
+              this.storage.set('userId', res.userId);
+              this.storage.set('imageUrl', res.imageUrl);
           });
 
           this.router.navigate(['/tabs']);
