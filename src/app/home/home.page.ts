@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'page-home',
@@ -18,7 +19,7 @@ export class HomePage {
 
   isLoggedIn:boolean = false;
 
-  constructor(public navCtrl: NavController, private googlePlus: GooglePlus) {
+  constructor(public navCtrl: NavController, private googlePlus: GooglePlus, private router: Router) {
 
   }
 
@@ -34,6 +35,8 @@ export class HomePage {
           this.imageUrl = res.imageUrl;
 
           this.isLoggedIn = true;
+
+          this.router.navigate(['/tabs']);
         })
         .catch(err => console.error(err));
   }

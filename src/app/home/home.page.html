@@ -1,25 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Home</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <div *ngIf="isLoggedIn; else loginTemplate">
-    <h1>Welcome, {{displayName}}!</h1>
-    <p>Email: {{email}}<br>
-      Family Name: {{familyName}}<br>
-      Given Name: {{givenName}}<br>
-      User ID: {{userId}}</p>
-    <p><ion-avatar item-left>
-      <img src="{{imageUrl}}">
-    </ion-avatar></p>
-    <p><button ion-button (click)="logout()">Logout From Google</button></p>
-  </div>
+<ion-content>
+        <ion-text color="primary">
+            <h1>Welkom Bij Arthron</h1>
+        </ion-text>
 
-  <ng-template #loginTemplate>
-    <h1>Please Login to see your Google Account Information</h1>
-    <p><button ion-button (click)="login()">Login With Google</button></p>
-  </ng-template>
+        <ion-button color="black" expand="block" style="font-weight: 900" (click)="login()">Login With Apple
+            <ion-icon slot="start" name="logo-apple"></ion-icon>
+        </ion-button>
+        <ion-button color="facebook" expand="block" style="font-weight: 900" (click)="login()">Login With Facebook
+            <ion-icon slot="start" name="logo-facebook"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" expand="block" style="font-weight: 900" (click)="login()">Login With Google
+            <ion-icon slot="start" name="logo-google"></ion-icon>
+        </ion-button>
+        <ion-button href="" color="primary" expand="block" style="font-weight: 900">Login With Email
+            <ion-icon slot="start" name="mail"></ion-icon>
+        </ion-button>
 </ion-content>
 

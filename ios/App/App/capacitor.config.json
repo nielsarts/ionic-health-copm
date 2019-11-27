@@ -6,7 +6,7 @@
   "webDir": "www",
   "cordova": {},
   "server": {
-    "url": "http://192.168.10.50:8100",
+    "url": "http://192.168.178.20:8100",
     "originalUrl": "http://192.168.10.50:8100"
   }
 }
