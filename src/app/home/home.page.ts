@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -19,7 +20,7 @@ export class HomePage {
 
   isLoggedIn:boolean = false;
 
-  constructor(public navCtrl: NavController, private googlePlus: GooglePlus, private router: Router) {
+  constructor(public navCtrl: NavController, private googlePlus: GooglePlus, private router: Router, public storage: Storage) {
 
   }
 
@@ -35,6 +36,10 @@ export class HomePage {
           this.imageUrl = res.imageUrl;
 
           this.isLoggedIn = true;
+
+          this.storage.ready().then(() => {
+              this.storage.set('name', 'Mr. Ionitron');
+          });
 
           this.router.navigate(['/tabs']);
         })

@@ -13,14 +13,21 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { environment } from '../environments/environment';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    AngularFireModule.initializeApp(environment.config),
-    AngularFireAuthModule],
+  imports: [
+      BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    AngularFireModule.
+    initializeApp(environment.config),
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot()
+  ],
   providers: [
     StatusBar,
     SplashScreen,
