@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import {GooglePlus} from '@ionic-native/google-plus/ngx';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  styleUrls: ['tab3.page.scss'],
+  providers: [GooglePlus]
 })
 export class Tab3Page {
   displayName: any;
@@ -14,7 +17,7 @@ export class Tab3Page {
   userId: any;
   imageUrl: any;
 
-  constructor(public storage: Storage) {
+  constructor(public storage: Storage, private googlePlus: GooglePlus, private router: Router) {
     storage.ready().then(() => {
       this.storage.get('displayName').then((displayName) => {
         this.displayName = displayName;
@@ -37,6 +40,19 @@ export class Tab3Page {
     });
   }
 
-
+  logout() {
+    this.googlePlus.logout()
+        .then(res => {
+          console.log(res);
+          this.displayName = '';
+          this.email = '';
+          this.familyName = '';
+          this.givenName = '';
+          this.userId = '';
+          this.imageUrl = '';
+          this.router.navigate(['/']);
+        })
+        .catch(err => console.error(err));
+  }
 
 }
