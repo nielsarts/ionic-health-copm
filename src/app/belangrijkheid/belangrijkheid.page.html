@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button href="/copm">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Belangrijkheid</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button href="/tabs">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Activiteiten op belangrijkheid</ion-list-header>
+    <ion-reorder-group (ionItemReorder)="onRenderItems($event)" disabled="false">
+      <ion-item *ngFor="let item of activiteiten; let i = index">
+        <ion-label>
+          {{ activiteiten[i].activiteit }}
+        </ion-label>
+        <ion-note slot="end" color="primary">{{ activiteiten[i].score }}</ion-note>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
+  </ion-list>
+  <section class="ion-padding">
+    <ion-button color="primary" expand="block" style="font-weight: 900" (click)="getList()">
+      Volgende
+    </ion-button>
+  </section>
+</ion-content>

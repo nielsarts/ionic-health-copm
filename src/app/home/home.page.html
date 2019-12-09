@@ -1,25 +1,15 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-title>Home</ion-title>
-    </ion-toolbar>
-</ion-header>
-
-<ion-content>
+<ion-content text-center class="vertical-align-content ion-padding">
+    <div class="ion-text-center">
         <ion-text color="primary">
-            <h1>Welkom Bij Arthron</h1>
+            <h1>Welkom!</h1>
         </ion-text>
-
-        <ion-button color="black" expand="block" style="font-weight: 900" (click)="login()">Login With Apple
-            <ion-icon slot="start" name="logo-apple"></ion-icon>
-        </ion-button>
-        <ion-button color="facebook" expand="block" style="font-weight: 900" (click)="login()">Login With Facebook
-            <ion-icon slot="start" name="logo-facebook"></ion-icon>
-        </ion-button>
-        <ion-button color="danger" expand="block" style="font-weight: 900" (click)="login()">Login With Google
-            <ion-icon slot="start" name="logo-google"></ion-icon>
-        </ion-button>
-        <ion-button href="" color="primary" expand="block" style="font-weight: 900">Login With Email
-            <ion-icon slot="start" name="mail"></ion-icon>
-        </ion-button>
+    </div>
 </ion-content>
 
+<ion-footer class="ion-padding">
+    <section>
+        <ion-button color="danger" expand="block" class="ion-margin-bottom" style="font-weight: 900" (click)="loginGoogle()">Login With Google
+            <ion-icon slot="start" name="logo-google"></ion-icon>
+        </ion-button>
+    </section>
+</ion-footer>

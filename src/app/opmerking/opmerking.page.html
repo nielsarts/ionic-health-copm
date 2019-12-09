@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button href="/beoordeling">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Opmerking</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button href="/tabs">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section>
+    <ion-list>
+      <ion-list-header>
+        Opmerking
+      </ion-list-header>
+      <ion-item>
+        <ion-textarea [(ngModel)]="opmerking" name="opmerking"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </section>
+  <section>
+    <ion-button color="primary" expand="block" style="font-weight: 900" (click)="save()">
+      Opslaan
+    </ion-button>
+  </section>
+</ion-content>

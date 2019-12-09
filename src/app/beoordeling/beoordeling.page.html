@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button href="/belangrijkheid">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Beoordeling</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button href="/tabs">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <section>
+    UITVOERING ( Hoe zou u de manier waarop u deze activiteit nu uitvoert scoren?)
+  </section>
+  <section>
+    TEVREDENHEID (Hoe tevreden bent u met de manier waarop u deze activiteit nu uitvoert?)
+  </section>
+  <section *ngFor="let item of top5; let i = index">
+    <h2>{{i+1}}. {{top5[i].activiteit}}</h2>
+    Belangrijkheid score: {{top5[i].score}}
+    <ion-item>
+      <ion-label>Uitvoering:</ion-label>
+      <ion-input type="number" [(ngModel)]="beoordeling[i].uitvoering" name="uitvoering" inputmode="numeric"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tevredenheid:</ion-label>
+      <ion-input type="number" [(ngModel)]="beoordeling[i].tevredenheid" name="tevredenheid" inputmode="numeric"></ion-input>
+    </ion-item>
+  </section>
+  <section>
+    <ion-button color="primary" expand="block" style="font-weight: 900" (click)="save()">
+      Volgende
+    </ion-button>
+  </section>
+</ion-content>

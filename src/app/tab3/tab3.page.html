@@ -6,16 +6,44 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <h1>Welcome, {{displayName}}!</h1>
-    <p>Email: {{email}}<br>
-      Family Name: {{familyName}}<br>
-      Given Name: {{givenName}}<br>
-      User ID: {{userId}}</p>
-    <p>
-      <ion-avatar item-left>
-        <img src="{{imageUrl}}">
-      </ion-avatar>
-    </p>
+<ion-content class="ion-padding">
+    <ion-item>
+        <ion-avatar slot="start">
+            <img src="{{imageUrl}}">
+        </ion-avatar>
+        <h1>Welcome, {{displayName}}!</h1>
+    </ion-item>
+    <ion-list>
+        <ion-list-header>
+            Email
+        </ion-list-header>
+        <ion-item>
+            <ion-label>{{email}}</ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            Voornaam
+        </ion-list-header>
+        <ion-item>
+            <ion-label>{{givenName}}</ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            Achternaam
+        </ion-list-header>
+        <ion-item>
+            <ion-label>{{familyName}}</ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            Gebruikers ID
+        </ion-list-header>
+        <ion-item>
+            <ion-label>{{userId}}</ion-label>
+        </ion-item>
+    </ion-list>
     <ion-button color="danger" block (click)="HomePage.logout()">Logout From Google</ion-button>
 </ion-content>

@@ -24,7 +24,7 @@ export class HomePage {
 
   }
 
-  login() {
+  loginGoogle() {
     this.googlePlus.login({})
         .then(res => {
           console.log(res);

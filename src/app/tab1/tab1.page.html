@@ -1,41 +1,106 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      Geschiedenis
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-card class="welcome-card">
-      <img src="/assets/shapes.svg" alt="" />
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      Voornaam
+    </ion-list-header>
+    <ion-item>
+      <ion-label>{{persoonlijk.voornaam}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Achternaam
+    </ion-list-header>
+    <ion-item>
+      <ion-label>{{persoonlijk.achternaam}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Geslacht
+    </ion-list-header>
+    <ion-item>
+      <ion-label>{{persoonlijk.geslacht}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Geboortedatum
+    </ion-list-header>
+    <ion-item>
+      <ion-label>{{persoonlijk.geboortedatum}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Activiteiten
+    </ion-list-header>
+    <ion-item-divider>
+      <ion-label>Zelfzorg</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let item of zelfzorg; let i = index">
+      <ion-label>{{ zelfzorg[i].activiteit}}</ion-label>
+      <ion-note slot="end" color="primary">{{ zelfzorg[i].score }}</ion-note>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>Productiviteit</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let item of productiviteit; let i = index">
+      <ion-label>{{ productiviteit[i].activiteit}}</ion-label>
+      <ion-note slot="end" color="primary">{{ productiviteit[i].score }}</ion-note>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>Vrije Tijd</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let item of vrijeTijd; let i = index">
+      <ion-label>{{ vrijeTijd[i].activiteit}}</ion-label>
+      <ion-note slot="end" color="primary">{{ vrijeTijd[i].score }}</ion-note>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Top 5 Belangrijkheid
+    </ion-list-header>
+    <section  *ngFor="let item of top5; let i = index">
+      <ion-item-divider>
+        <ion-note slot="start" color="primary">{{ i+1 }}. </ion-note>
+        <ion-label>{{ top5[i].activiteit}}</ion-label>
+        <ion-note slot="end" color="primary">{{ top5[i].score }}</ion-note>
+      </ion-item-divider>
+      <ion-item>
+        <ion-label>Uitvoering</ion-label>
+        <ion-note slot="end" color="secundary">{{ beoordeling[i].uitvoering}}</ion-note>
       </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
+      <ion-item>
+        <ion-label>Tevredenheid</ion-label>
+        <ion-note slot="end" color="secundary">{{ beoordeling[i].tevredenheid}}</ion-note>
       </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list>
+    </section>
+  </ion-list>
+<!--  <ion-list>-->
+<!--    <ion-list-header>-->
+<!--      Tevredenheid en Uitvoering-->
+<!--    </ion-list-header>-->
+<!--    <ion-item *ngFor="let item of top5; let i = index">-->
+<!--      <ion-note slot="start" color="primary">{{ i+1 }}.</ion-note>-->
+<!--      <ion-label>{{ top5[i].activiteit}}</ion-label>-->
+<!--      <ion-note slot="end" color="primary">{{ top5[i].score }}</ion-note>-->
+<!--    </ion-item>-->
+<!--  </ion-list>-->
+  <ion-list>
+    <ion-list-header>
+      Opmerking
+    </ion-list-header>
+    <ion-item>
+      <ion-label>{{opmerking}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,0 +1,125 @@
+<ion-header>
+    <ion-toolbar>
+
+        <ion-title>COPM</ion-title>
+
+        <ion-buttons slot="primary">
+            <ion-button href="/tabs">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <!--    <h1>Canadian Occupational Performance Measure</h1>-->
+    <section>
+        <ion-button (click)="clean()" color="secondary" expand="block" style="font-weight: 900">
+            Clean
+        </ion-button>
+    </section>
+    <form (ngSubmit)="opslaan()">
+        <section>
+            <h2>Persoonlijke informatie</h2>
+            <ion-list>
+                <ion-item>
+                    <ion-label position="floating">Geslacht</ion-label>
+                    <ion-select [(ngModel)]="persoonlijk.geslacht" interface="popover" name="geslacht">
+                        <ion-select-option value="f">Vrouw</ion-select-option>
+                        <ion-select-option value="m">Man</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Voornaam</ion-label>
+                    <ion-input  [(ngModel)]="persoonlijk.voornaam" name="voornaam"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Achternaam</ion-label>
+                    <ion-input  [(ngModel)]="persoonlijk.achternaam" name="achternaam"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Geboortedatum</ion-label>
+                    <ion-datetime [(ngModel)]="persoonlijk.geboortedatum" displayFormat="DD MMMM YYYY" pickerFormat="DD MMMM YYYY" name="geboortedatum"></ion-datetime>
+                </ion-item>
+            </ion-list>
+        </section>
+        <section>
+            <ion-list>
+                <h2>Activiteiten</h2>
+                Geef per onderdeel activiteiten aan waarbij u problemen ervaart. denk aan activiteiten die u wil/moet doen, dingen die u niet meer doet.
+                Geef per activiteit een score voor belangrijkheid van de activiteit (1 = helemaal niet bealngrijk en 10 = zeer belanrijk).
+                <h3>Zelfzorg</h3>
+                Betreft Persoonlijke verzorging, Functionele mobiliteit en Maatschappelijke zelfredzaamheid
+                <ion-row *ngFor="let item of zelfzorg; let i = index">
+                    <ion-col size="8">
+                        <ion-item>
+                            <ion-label position="floating">Activiteit</ion-label>
+                            <ion-textarea [(ngModel)]="zelfzorg[i].activiteit" name="activiteit"></ion-textarea>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="4" align-self-end>
+                        <ion-item>
+                            <ion-label position="floating">Score</ion-label>
+                            <ion-input [(ngModel)]="zelfzorg[i].score" type="number" name="score" inputmode="numeric">  </ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-button color="secondary" (click)="addItemZelfzorg()">
+                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                </ion-button>
+                <ion-button color="danger" (click)="removeItemZelfzorg()">
+                    <ion-icon name="trash"></ion-icon>
+                </ion-button>
+                <h3>Productiviteit</h3>
+                Betreft Betaald of onbetaald werk, Uitvoering van het huishouden en school en/of spel.
+                <ion-row *ngFor="let item of productiviteit; let i = index">
+                    <ion-col size="8">
+                        <ion-item>
+                            <ion-label position="floating">Activiteit</ion-label>
+                            <ion-textarea [(ngModel)]="productiviteit[i].activiteit" name="activiteit"></ion-textarea>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="4" align-self-end>
+                        <ion-item>
+                            <ion-label position="floating">Score</ion-label>
+                            <ion-input type="number" [(ngModel)]="productiviteit[i].score" name="score" inputmode="numeric">  </ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-button color="secondary" (click)="addItemProductiviteit()">
+                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                </ion-button>
+                <ion-button color="danger" (click)="removeItemProductiviteit()">
+                    <ion-icon name="trash"></ion-icon>
+                </ion-button>
+                <h3>Vrije Tijd</h3>
+                Betreft Passieve recreatie, Actieve recreatie en Social contact
+                <ion-row *ngFor="let item of vrijeTijd; let i = index">
+                    <ion-col size="8">
+                        <ion-item>
+                            <ion-label position="floating">Activiteit</ion-label>
+                            <ion-textarea [(ngModel)]="vrijeTijd[i].activiteit" name="activiteit"></ion-textarea>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="4" align-self-end>
+                        <ion-item>
+                            <ion-label position="floating">Score</ion-label>
+                            <ion-input type="number" [(ngModel)]="vrijeTijd[i].score" name="score" inputmode="numeric">  </ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-button color="secondary" (click)="addItemVrijeTijd()">
+                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                </ion-button>
+                <ion-button color="danger" (click)="removeItemVrijeTijd()">
+                    <ion-icon name="trash"></ion-icon>
+                </ion-button>
+            </ion-list>
+        </section>
+        <section>
+            <ion-button type="submit" color="primary" expand="block" style="font-weight: 900">
+                Volgende
+            </ion-button>
+        </section>
+    </form>
+</ion-content>
